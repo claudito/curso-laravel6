@@ -1,0 +1,16 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Producto extends Model
+{
+    //
+
+	protected $table   =  "productos";//Nombre de la tabla
+ 
+    protected $guarded = ['id'];//La llave primaria
+
+
+}
