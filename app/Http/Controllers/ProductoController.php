@@ -15,38 +15,6 @@ class ProductoController extends Controller
 	 try {
 	 		
 
-	 //Crear
-	 	/*
-	  Producto::create([
-
-	 	'codigo'		=>'0002',
-	 	'descripcion' 	=>'Galletas Soda',
-	 	'cantidad'	    =>'10'
-
-	 ]);*/
-
-	 /*
-	 Actualizar
-	 Producto::where('id',2)
-	 ->update([
-
-	 	'codigo'	 =>'0002',
-	 	'descripcion'=>'Galletas de Chocolate'
-
-	 	]);*/
-
-	 //Eliminar
-	// Producto::where('id',2)->delete();
-
-	 //return 'okey';
-
-	 	//$result  = Producto::all();
-
-	 	//$result  = Producto::find(4);
-
-	 	//return $result;
-
-
 	 	if($request->ajax()){
 
 	 	$result = Producto::all();
@@ -56,6 +24,7 @@ class ProductoController extends Controller
 
 	 	}
 
+	 	//Carga de la vista
 	 	return view('producto.index');
 
 
@@ -66,15 +35,74 @@ class ProductoController extends Controller
 	 	
 	 }
 
-	
-
-
-
-
-	// return 'Página de Registro de Productos';
 
 
 	}
+
+
+	function agregar(Request $request){
+
+
+
+
+	}
+
+	function actualizar(Request $request){
+
+		
+
+
+	}
+
+
+	function eliminar(Request $request){
+
+		try {
+
+	    Producto::where('id',$request->id)
+	    ->delete();
+
+		return array(
+
+			'title' => 'Buen Trabajo',
+			'text'  => 'Registro Eliminado',
+			'icon'  => 'success'
+ 
+		);
+
+			
+		} catch (\Illuminate\Database\QueryException $e) {
+
+				
+		return array(
+
+			'title' => 'Error',
+			'text'  => $e->getMessage(),
+			'icon'  => 'error'
+ 
+		);
+
+
+		}
+	
+	}
+
+
+	function consultar(Request $request){
+
+		
+
+
+	}
+
+
+
+
+
+
+
+
+
 
 
 
